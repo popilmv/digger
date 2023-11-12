@@ -3,7 +3,7 @@ name: Terraform
 on:
   push:
     branches:
-      - main
+      - dev
 
 jobs:
   terraform:
@@ -11,7 +11,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - uses: diggerhq/digger@v0.4.0
+      - uses: diggerhq/digger@v0.5.0
         with:
           target: my-target
           backend: gcs
