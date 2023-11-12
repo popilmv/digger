@@ -25,7 +25,7 @@ resource "google_compute_subnetwork" "my_subnetwork" {
 }
 
 
-resource "google_compute_instance" "homework" {
+resource "google_compute_instance" "my-instance" {
   name = var.machine_name
   machine_type = var.machine_type  
   zone         = "us-central1-a"  
@@ -51,3 +51,16 @@ resource "google_compute_address" "instance_ip" {
   depends_on = [google_compute_instance.homework]
 }
 
+resource "digger_target" "my_target" {
+  name = "my-target"
+}
+
+resource "digger_plan" "my_plan" {
+  target = digger_target.my_target.self_link
+  backend = terraform.backend.gcs.bucket
+  prefix = terraform.backend.gcs.prefix
+}
+
+resource "digger_apply" "my_apply" {
+  plan = digger_plan.my_plan.self_link
+}
