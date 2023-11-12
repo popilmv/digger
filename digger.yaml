@@ -1,6 +1,7 @@
-name: my-env
-
-provider: google
+auto_merge: false
+projects:
+- name: digger
+  dir: dev
 
 credentials:
   file: service-account-key.json
