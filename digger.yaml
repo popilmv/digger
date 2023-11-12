@@ -1,7 +1,7 @@
 auto_merge: false
 projects:
 - name: digger
-  dir: dev
+  dir: main
 
 credentials:
   file: service-account-key.json
