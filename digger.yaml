@@ -1,0 +1,13 @@
+name: my-env
+
+provider: google
+
+credentials:
+  file: service-account-key.json
+  project: high-territory-403908
+  region: us-central1
+
+backend:
+  type: gcs
+  bucket: my-terraform-bucket-27
+  prefix: terraform-bucket-27
